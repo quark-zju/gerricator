@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'gerricator'
-  s.version = '0.1.0'
+  s.version = '0.1.1'
   s.date = Date.civil(2015,1,25)
   s.summary = 'Gerrit change to Phabricator diff'
   s.description = 'Command-line tool to create or update Phabricator diff from Gerrit change'
@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'sqlite3', '~> 1.3'
   s.add_dependency 'thor', '~> 0.19'
   s.add_dependency 'httpi', '~> 2.2'
+  s.add_dependency 'curb', '~> 0.8'
 end
