@@ -1,0 +1,21 @@
+phabricator:
+  conduit_uri: http://phricator.example.com/
+  username: gerricator
+  certificate: f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0
+gerrit:
+  base_url: https://gerrit.example.com/
+  username: gerricator
+  http_password: HTTPpasswd
+  bots: ['jenkins']
+projects:
+  gerrit_project_name_a:
+    git_url: ssh://gerricator@gerrit.example.com/gerrit_project_name_a.git
+    phabricator_callsign: A
+    # if 'reviewers' is not set, it will be gerrit reviewers - gerrit bots.
+    # note: phabricator must have these reviewers accounts.
+  gerrit_project_name_b:
+    git_url: ssh://gerricator@gerrit.example.com/gerrit_project_name_b.git
+    phabricator_callsign: B
+    reviewers: ['alice', 'bob']
+local_cache_path: ~/.cache/gerricator/
+db_path: ~/.config/gerricator/main.sqlite3

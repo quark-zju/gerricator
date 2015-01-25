@@ -1,0 +1,3 @@
+db/main.sqlite3
+config/config.yml
+*.gem

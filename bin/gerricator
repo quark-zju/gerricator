@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require_relative '../config/app'
+
+
+class Gerricator < Thor
+  desc 'push CHANGE REVISION', 'push Gerrit change to Phabricator'
+  def push change_id, rev_no=nil
+    App::push_change change_id, rev_no
+  end
+
+  desc 'init', 'create an example config file'
+  method_option :force, type: :boolean, aliases: '-f', default: false, desc: 'overwrite existing config file'
+  def init
+    App::write_example_config force: options.force
+  end
+end
+
+Gerricator.start
