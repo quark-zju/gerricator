@@ -12,6 +12,10 @@ class Gerrit < Struct.new(:base_url, :username, :password)
     request endpoint, method: 'post', body: body.to_s
   end
 
+  def put endpoint, body = {}
+    request endpoint, method: 'put', body: JSON.dump(body)
+  end
+
   class Change < Struct.new(:gerrit, :change_id)
     def number
       @number ||= get['_number']
@@ -27,6 +31,10 @@ class Gerrit < Struct.new(:base_url, :username, :password)
 
     def revisions
       get('?o=ALL_REVISIONS')['revisions']
+    end
+
+    def owner
+      get('detail')['owner']['username']
     end
 
     def get subpath=''

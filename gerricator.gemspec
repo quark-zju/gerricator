@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'gerricator'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
   s.date = Date.civil(2015,1,25)
   s.summary = 'Gerrit change to Phabricator diff'
   s.description = 'Command-line tool to create or update Phabricator diff from Gerrit change'

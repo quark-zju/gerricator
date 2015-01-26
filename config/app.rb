@@ -97,7 +97,7 @@ module App; class << self
           change_url = File.join(config['gerrit']['base_url'], "#/c/#{number}")
           message = "#{Git::message(work_dir)}\nGerrit URL: #{change_url}\n"
           reviewers = [*config['projects'][project]['reviewers']].compact
-          reviewers = change.reviewers - gerrit_bots if reviewers.empty?
+          reviewers = change.reviewers - gerrit_bots - [change.owner] if reviewers.empty?
           logger.info "Creating new diff, reviewers: #{reviewers}"
           differential_id = arc.diff(work_dir, config['projects'][project]['phabricator_callsign'], message: message, reviewers: reviewers)
           link = Link.create! differential_id: differential_id, change_number: number, patch_set_revisions: rev_no
